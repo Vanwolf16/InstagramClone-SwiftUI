@@ -13,7 +13,7 @@ struct MainTabView: View {
             FeedView().tabItem {
                 Image(systemName: "house")
             }
-            Text("Search").tabItem {
+            SearchView().tabItem {
                 Image(systemName: "magnifyingglass")
             }
             Text("Upload Post").tabItem {
