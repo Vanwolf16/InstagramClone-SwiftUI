@@ -25,5 +25,6 @@ struct UserStatView: View {
 struct UserStatView_Previews: PreviewProvider {
     static var previews: some View {
         UserStatView(value: 12, title: "Posts")
+        
     }
 }

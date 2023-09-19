@@ -8,23 +8,43 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    @State private var selectedIndex = 0
+    
     var body: some View {
-        TabView{
-            FeedView().tabItem {
+        
+        TabView(selection: $selectedIndex){
+            
+            FeedView().onAppear{
+                selectedIndex = 0
+            }.tabItem {
                 Image(systemName: "house")
-            }
-            SearchView().tabItem {
+            }.tag(0)
+            
+            SearchView().onAppear{
+                selectedIndex = 1
+            }.tabItem {
                 Image(systemName: "magnifyingglass")
-            }
-            Text("Upload Post").tabItem {
+            }.tag(1)
+            
+            UploadPostView(tabIndex: $selectedIndex).onAppear{
+                selectedIndex = 2
+            }.tabItem {
                 Image(systemName: "plus.square")
-            }
-            Text("Notifications").tabItem {
+            }.tag(2)
+            
+            Text("Notifications").onAppear{
+                selectedIndex = 3
+            }.tabItem {
                 Image(systemName: "heart")
-            }
-            ProfileView().tabItem {
+            }.tag(3)
+            
+            CurrentUserProfileView(user: User.MOCK_USERS[0]).onAppear{
+                selectedIndex = 4
+            }.tabItem {
                 Image(systemName: "person")
-            }
+            }.tag(4)
+            
         }
         .accentColor(.black)
     }
