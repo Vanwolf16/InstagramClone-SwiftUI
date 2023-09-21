@@ -1,5 +1,5 @@
 //
-//  CompleteSignUpView.swift
+//  CreateUsernameView.swift
 //  Instagram-Clone
 //
 //  Created by David Murillo on 9/15/23.
@@ -7,27 +7,32 @@
 
 import SwiftUI
 
-struct CompleteSignUpView: View {
+struct CreateUsernameView: View {
+    
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel:RegistrationViewModel
     
     var body: some View {
-       
+        
         VStack(spacing: 12){
-            Text("Welcome to Instagram, John Doe").font(.title2)
+            Text("Add your Username").font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
-                .multilineTextAlignment(.center)
-            
-            Text("Click below to complete registration and start using Instagram")
+            Text("You'll use this email to sign in to your account")
                 .font(.footnote)
+                .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal,24)
             
+            TextField("Username", text: $viewModel.username)
+                .autocapitalization(.none)
+                .modifier(IGTextFieldModifier())
+                .padding(.top)
             
-            Button {
-                print("Complete Sign Up")
+            NavigationLink {
+                CreatePasswordView().navigationBarBackButtonHidden(true)
             } label: {
-                Text("Complete Sign Up").font(.subheadline)
+                Text("Next").font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .frame(width: 360, height: 44)
@@ -37,8 +42,8 @@ struct CompleteSignUpView: View {
 
             
             
-            
-            
+                
+            Spacer()
             
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -53,8 +58,8 @@ struct CompleteSignUpView: View {
     }
 }
 
-struct CompleteSignUpView_Previews: PreviewProvider {
+struct CreateUsernameView_Previews: PreviewProvider {
     static var previews: some View {
-        CompleteSignUpView()
+        CreateUsernameView()
     }
 }

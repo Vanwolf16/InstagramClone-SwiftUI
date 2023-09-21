@@ -1,5 +1,5 @@
 //
-//  CreatePasswordView.swift
+//  CompleteSignUpView.swift
 //  Instagram-Clone
 //
 //  Created by David Murillo on 9/15/23.
@@ -7,31 +7,29 @@
 
 import SwiftUI
 
-struct CreatePasswordView: View {
-    @State private var password = ""
+struct CompleteSignUpView: View {
+    
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel:RegistrationViewModel
     
     var body: some View {
+       
         VStack(spacing: 12){
-            Text("create a password").font(.title2)
+            Text("Welcome to Instagram, \(viewModel.username)").font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
-            Text("You'll use this email to sign in to your account")
+                .multilineTextAlignment(.center)
+            
+            Text("Click below to complete registration and start using Instagram")
                 .font(.footnote)
-                .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal,24)
             
-            SecureField("Password...", text: $password)
-                .autocapitalization(.none)
-                .modifier(IGTextFieldModifier())
-                .padding(.top)
             
-            NavigationLink {
-                CompleteSignUpView()
-                    .navigationBarBackButtonHidden(true)
+            Button {
+                Task{ try await viewModel.createUser() }
             } label: {
-                Text("Next").font(.subheadline)
+                Text("Complete Sign Up").font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .frame(width: 360, height: 44)
@@ -41,8 +39,8 @@ struct CreatePasswordView: View {
 
             
             
-                
-            Spacer()
+            
+            
             
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -57,8 +55,8 @@ struct CreatePasswordView: View {
     }
 }
 
-struct CreatePasswordView_Previews: PreviewProvider {
+struct CompleteSignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePasswordView()
+        CompleteSignUpView()
     }
 }
