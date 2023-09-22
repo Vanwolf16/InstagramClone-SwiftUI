@@ -39,6 +39,9 @@
 		B4CBEE7B2AB8F653000916DF /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CBEE7A2AB8F653000916DF /* PostGridView.swift */; };
 		B4D5FB572AB8C43100AD5DB4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5FB562AB8C43100AD5DB4 /* User.swift */; };
 		B4D5FB592AB8CB2300AD5DB4 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5FB582AB8CB2300AD5DB4 /* CurrentUserProfileView.swift */; };
+		B4E3133C2ABE09D200E945F6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3133B2ABE09D200E945F6 /* UserService.swift */; };
+		B4E3133E2ABE0ABE00E945F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3133D2ABE0ABE00E945F6 /* Constants.swift */; };
+		B4E313422ABE0B1300E945F6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E313412ABE0B1300E945F6 /* SearchViewModel.swift */; };
 		B4ED479C2AB2488F00E3E707 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED479B2AB2488F00E3E707 /* ProfileView.swift */; };
 		B4EF74862AB4EDC1008FEB9B /* CreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EF74852AB4EDC1008FEB9B /* CreatePasswordView.swift */; };
 		B4EF74882AB4EE7E008FEB9B /* CompleteSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EF74872AB4EE7E008FEB9B /* CompleteSignUpView.swift */; };
@@ -94,6 +97,9 @@
 		B4CBEE7A2AB8F653000916DF /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		B4D5FB562AB8C43100AD5DB4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4D5FB582AB8CB2300AD5DB4 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
+		B4E3133B2ABE09D200E945F6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B4E3133D2ABE0ABE00E945F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B4E313412ABE0B1300E945F6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B4ED479B2AB2488F00E3E707 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B4EF74852AB4EDC1008FEB9B /* CreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordView.swift; sourceTree = "<group>"; };
 		B4EF74872AB4EE7E008FEB9B /* CompleteSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignUpView.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 		B4990A302AB2417600688258 /* Instagram-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				B4E3133A2ABE09BA00E945F6 /* New Group */,
 				B4990A5F2AB241F500688258 /* App */,
 				B4990A5E2AB241F400688258 /* Core */,
 				B4990A5D2AB241F200688258 /* Extensions */,
@@ -248,6 +255,7 @@
 		B4990A5B2AB241E500688258 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B4E3133B2ABE09D200E945F6 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 		B4990A5D2AB241F200688258 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B4E3133D2ABE0ABE00E945F6 /* Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,7 +341,8 @@
 		B4990A642AB2424B00688258 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				B46D85382AB39B55005A798D /* SearchView.swift */,
+				B4E313402ABE0AF800E945F6 /* ViewModel */,
+				B4E3133F2ABE0AF300E945F6 /* View */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -352,6 +362,29 @@
 				B436892F2ABA147D00E825BD /* UploadPostViewModel.swift */,
 			);
 			path = UploadPost;
+			sourceTree = "<group>";
+		};
+		B4E3133A2ABE09BA00E945F6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B4E3133F2ABE0AF300E945F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B46D85382AB39B55005A798D /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4E313402ABE0AF800E945F6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4E313412ABE0B1300E945F6 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +529,7 @@
 			files = (
 				B46D85372AB391DA005A798D /* FeedCell.swift in Sources */,
 				B439E3192ABCAD1A009086DA /* AuthService.swift in Sources */,
+				B4E3133C2ABE09D200E945F6 /* UserService.swift in Sources */,
 				B4EF74862AB4EDC1008FEB9B /* CreatePasswordView.swift in Sources */,
 				B4ED479C2AB2488F00E3E707 /* ProfileView.swift in Sources */,
 				B4990A342AB2417600688258 /* ContentView.swift in Sources */,
@@ -504,12 +538,14 @@
 				B4990A322AB2417600688258 /* Instagram_CloneApp.swift in Sources */,
 				B4F5D8772ABCD7CE0000AB2B /* LoginViewModel.swift in Sources */,
 				B439E31D2ABCB216009086DA /* ContentViewModel.swift in Sources */,
+				B4E3133E2ABE0ABE00E945F6 /* Constants.swift in Sources */,
 				B4238D932AB8FA94002171AC /* ProfileHeaderView.swift in Sources */,
 				B472F8D12AB4D41800248DE8 /* AddEmailView.swift in Sources */,
 				B472F8D52AB4DBCD00248DE8 /* CreateUsernameView.swift in Sources */,
 				B46D85392AB39B55005A798D /* SearchView.swift in Sources */,
 				B472F8D32AB4DACF00248DE8 /* IGTextFieldModifier.swift in Sources */,
 				B4EF74882AB4EE7E008FEB9B /* CompleteSignUpView.swift in Sources */,
+				B4E313422ABE0B1300E945F6 /* SearchViewModel.swift in Sources */,
 				B43689302ABA147D00E825BD /* UploadPostViewModel.swift in Sources */,
 				B4CBEE7B2AB8F653000916DF /* PostGridView.swift in Sources */,
 				B44785522AB38404007F3801 /* UserStatView.swift in Sources */,

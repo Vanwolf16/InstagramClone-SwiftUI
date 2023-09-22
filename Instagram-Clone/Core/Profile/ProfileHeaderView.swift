@@ -40,6 +40,10 @@ struct ProfileHeaderView: View {
                         .fontWeight(.semibold)
                     
                     Text(user.fullname ?? "").font(.footnote)
+                    
+                    
+                    Text(user.username)
+                    
                 }.frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal)
                 
