@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    
     let user:User
+    
+    @State private var showEditProfile = false
     
     var body: some View {
         VStack(spacing: 10){
@@ -16,10 +19,7 @@ struct ProfileHeaderView: View {
             VStack{
                 //pics and stats
                 HStack{
-                    Image(user.profileImageUrl ?? "")
-                        .resizable().scaledToFill()
-                        .frame(width: 80,height: 80)
-                        .clipShape(Circle())
+                    CircularProfileImageView(user: user, size: .large)
                     
                     Spacer()
                     
@@ -36,11 +36,17 @@ struct ProfileHeaderView: View {
                 
                 // name and bio
                 VStack(alignment: .leading,spacing: 4){
-                    Text(user.username).font(.footnote)
-                        .fontWeight(.semibold)
                     
-                    Text(user.fullname ?? "").font(.footnote)
                     
+                    if let fullname = user.fullname{
+                        Text(fullname)
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                    }
+                    
+                    if let bio = user.bio{
+                        Text(bio).font(.footnote)
+                    }
                     
                     Text(user.username)
                     
@@ -49,20 +55,28 @@ struct ProfileHeaderView: View {
                 
                 //action button
                 Button {
-                    
+                    if user.isCurrentUser{
+                        showEditProfile.toggle()
+                    }else{
+                        print("Follow the user")
+                    }
                 } label: {
-                    Text("Edit Profile")
+                    Text(user.isCurrentUser ? "Edit Profile": "Follow")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .frame(width: 360,height: 32)
-                        .foregroundColor(.black)
+                        .background(user.isCurrentUser ? .white : Color(.systemBlue))
+                        .foregroundColor(user.isCurrentUser ? .black : .white)
+                        .cornerRadius(6)
                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.gray,lineWidth: 1))
                 }
                 
                 
                 Divider()
             }
-            
+            .fullScreenCover(isPresented: $showEditProfile) {
+                EditProfileView(user: user)
+            }
             
             
         }//header Vstack
