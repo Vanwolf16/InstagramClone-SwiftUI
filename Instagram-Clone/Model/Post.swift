@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Post: Identifiable,Hashable,Codable{
     let id:String
@@ -13,16 +14,16 @@ struct Post: Identifiable,Hashable,Codable{
     let caption: String
     var likes:Int
     let imageUrl:String
-    let timestamp:Date
+    let timestamp:Timestamp
     var user:User?
 }
 
 extension Post{
     static var MOCK_POSTS:[Post] = [
-        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Batman", timestamp: Date(),user: User.MOCK_USERS[0]),
-        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Date(),user: User.MOCK_USERS[1]),
-        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Date(),user: User.MOCK_USERS[2]),
-        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Date(),user: User.MOCK_USERS[3]),
+        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Batman", timestamp:Timestamp(date: Date()) ,user: User.MOCK_USERS[0]),
+        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Timestamp(date: Date()),user: User.MOCK_USERS[1]),
+        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Timestamp(date: Date()),user: User.MOCK_USERS[2]),
+        .init(id: NSUUID().uuidString, ownerUid: NSUUID().uuidString, caption: "this is a caption for posting", likes: 12, imageUrl: "Spiderman", timestamp: Timestamp(date: Date()),user: User.MOCK_USERS[3]),
         
     ]
 }

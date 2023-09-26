@@ -24,7 +24,7 @@ struct ProfileView: View {
             ProfileHeaderView(user: user)
             
             //post grid view
-            PostGridView(posts: posts)
+            PostGridView(user: user)
         }//end of ScrollView
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
